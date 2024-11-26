@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <section id="cart">
+        <h2>Votre Panier</h2>
+        <div class="cart-items">
+            {% for order in orders %}
+            <div class="cart-item">
+                <img src="{{ order.product.thumbnail.url }}" alt="{{ order.product.name }}" class="cart-item-image">
+                <div class="cart-item-details">
+                    <h3>{{ order.product.name }}</h3>
+                    <p>Prix unitaire : {{ order.product.price }}$</p>
+                    <p>Quantité : {{ order.quantity }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="cart-total">
+            <h4>Sous-total : {{ total }}$</h4>
+            <a href="{% url 'delete-cart' %}" class="button delete-cart">Supprimer le panier</a>
+            <a href="" class="button validate-cart">Confirmer l'achat</a>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

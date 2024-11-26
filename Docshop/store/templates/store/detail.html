@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main>
+    <section id="product-detail" class="detail">
+        <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
+        <div class="details">
+            <h2>{{ product.name }}</h2>
+            <p class="price">{{ product.price }} $</p>
+            <p>{{ product.description }}</p>
+            <p>{{ product.stock }} pièce(s) en stock</p>
+
+            {% if user.is_authenticated %}
+                <button class="add-to-cart">
+                    <a href="{% url 'add_to_cart' product.slug %}" style="color: #fff; text-decoration: none;">
+                        Ajouter au panier
+                    </a>
+                </button>
+            {% endif %}
+        </div>
+    </section>
+</main>
+
+{% endblock %}

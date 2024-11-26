@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="products">
+    <h1>Articles disponibles</h1>
+    <div class="product-list">
+        {% for product in products %}
+            <div class="product">
+                <a href="{{ product.get_absolute_url }}">
+                    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}">
+                </a>
+                <h4>{{ product.name }}</h4>
+                <p class="price">Prix : {{ product.price }} $</p>
+                <div class="ajouterAuPanier">
+                    <button class="add-to-cart">
+                        <a href="{{ product.get_absolute_url }}" style="color: #fff; text-decoration: none;">Voir</a>
+                    </button>
+                    {% if user.is_authenticated %}
+                        <button class="add-to-cart">
+                            <a href="{% url 'add_to_cart' product.slug %}" style="color: #fff; text-decoration: none;">
+                                Ajouter au panier
+                            </a>
+                        </button>
+                    {% endif %}
+                </div>
+            </div>                    
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+  <!-- <h3>{{product.name}} : {{product.price}} $</h3>
+    <img src="{{ product.thumbnail.url }}" alt="{{ product.name }}" style="max-width: 180px;">
+    <a href="{{product.get_absolute_url}}">Voir l'article</a>
+-->

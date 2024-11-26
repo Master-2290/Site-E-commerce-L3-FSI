@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style_final.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--Boxicon-->
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <!--remixicon-->
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"rel="stylesheet"/>
+    <!--google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:ital,
+    wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" 
+    rel="stylesheet">
+    <title>Hassan Shop</title>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">     
+                <div class="logoName"> 
+                    <a href="{% url 'accueil' %}" class="logos">
+                        <div class="principalTitle">Hassan</div> 
+                        <div class="sousTilte">Shopping</div>
+                    </a>
+                </div>
+               <div class="onglet">
+                    <a href="{% url 'accueil' %}" class="Accueil">Accueil</a>
+                    <a href="{% url 'index' %}" class="Articles">Articles</a>
+                    <a href="{% url 'Livraison' %}" class="Livraison"> Livraison</a>
+                    <a href="{% url 'contact' %}" class="Contact">Avis</a>
+                    <!-- Formulaire de recherche -->
+                 <div class="search-form">
+                    <input type="text" name="q" placeholder="Rechercher un produit..." value="{{ request.GET.q }}">
+                    <button type="submit"><i class='bx bx-search'></i></button> 
+                 </div>
+               </div>
+
+                <!-- Section de bienvenue dans la navigation -->
+                <div class="welcome">
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'logout' %}" class="button">Déconnexion</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="button">Connexion</a>
+                        <a href="{% url 'signup' %}" class="button">S'inscrire</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'cart' %}" class="panier"> 
+                        <div class="panierImage"><i class='bx bx-cart'></i></div>
+                        {% if user.cart.orders.count == 0  %} 
+                            <div class="nbrArt0"><h5 class="nbrArt00">0</h5></div>
+                        {% else %}
+                        <div class="nbrArt">{{ user.cart.orders.count }}</div></a>
+                        {% endif %}
+                    {% endif %}   
+                    <a class="bx bx-menu" id="menu-icon"></a>
+                </div>
+        </div>
+    </header>
+
+
+    <!--js link-->
+    <script src="js/script.js"></script>
+
+<!--<section class="import">
+        <div class="pages">
+          
+        </div>
+    </section>
+-->
+<!--   {% if user.is_authenticated %}
+        <div class="welcome-message">
+            <p>Bonjour {{ user.username }}, Bienvenue !</p>
+        </div>
+    {% else %}
+        <div class="welcome-message">
+            <p>Bienvenue sur Hassan Shop !</p>
+        </div>
+    {% endif %}
+      <footer>
+        <p>&copy; 2024 Hassan Shop. Tous droits réservés.</p>
+    </footer>
+
+
+-->
+{% block content %}
+{% endblock %}
+</body>
+</html>

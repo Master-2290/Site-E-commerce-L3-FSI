@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<main>
+
+
+    <section class="delivery-container">
+        <h1>Notre Service de Livraison</h1>
+        <p>
+            Chez <span class="highlight_Hassan">Hassan</span> <span class="highlight">Shop</span> , nous comprenons l’importance de recevoir vos achats dans les meilleures conditions et dans les plus brefs délais. C’est pourquoi nous avons mis en place un service de livraison pensé pour répondre à vos attentes.
+        </p>
+        <ul>
+            <li>✔ <span class="highlight">Rapidité</span> : Nous nous engageons à expédier vos commandes en un temps record, où que vous soyez.</li>
+            <li>✔ <span class="highlight">Fiabilité</span> : Suivez votre colis en temps réel grâce à notre système de suivi intuitif.</li>
+            <li>✔ <span class="highlight">Flexibilité</span> : Choisissez entre une livraison à domicile, en point relais, ou à votre lieu de travail.</li>
+            <li>✔ <span class="highlight">Qualité</span> : Nos emballages sont soigneusement conçus pour protéger vos produits jusqu’à leur arrivée.</li>
+        </ul>
+        <p>
+    
+            Avec notre réseau de partenaires logistiques de confiance, nous vous garantissons :
+    
+            Des délais de livraison rapides : Recevez vos commandes en un temps record, où que vous soyez.
+            Un suivi en temps réel : Gardez un œil sur chaque étape de votre colis, de l'expédition à la livraison.
+            Une flexibilité adaptée à vos besoins : Livraison à domicile, en point relais ou sur votre lieu de travail, 
+            c'est vous qui choisissez !
+            Un soin particulier apporté à vos produits : Chaque colis est emballé avec attention pour arriver en parfait état.
+            Votre satisfaction est notre priorité. Grâce à notre service de livraison, 
+            profitez de vos achats en toute tranquillité et sans attendre. Commandez dès maintenant et laissez-nous nous occuper du reste !
+    
+  
+            Votre satisfaction est au cœur de nos priorités. Avec <span class="highlight">Hassan Shop</span>, soyez assuré que chaque détail compte. Commandez dès maintenant et profitez d’une expérience de livraison exceptionnelle. <br><br>
+            Hassan Shop : votre confort, notre mission. 💼🚛
+        </p> <br>
+        <a href="{% url 'index' %}" class="cta-button">Découvrir nos produits</a>
+        <a href="{% url 'contact' %}" class="cta-button">Faire une réclamation</a>
+
+    </section>
+   
+
+    <section class="grilleTarifaire">
+
+    </section>
+
+
+
+</main>
+
+
+
+
+{% endblock %}
